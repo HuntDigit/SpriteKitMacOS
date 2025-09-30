@@ -18,8 +18,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         console = SKonsole(rowCount: ROW_COUNT, colCount: COL_COUNT)
         addChild(console)
-        
-        console.setString("Hello, world!", at: .init(x: 1, y: 1))
+        console.clear()
+        console.putString("Hello, world!", at: .init(x: 1, y: 1), bgColor: .black)
     }
  
     override func keyDown(with event: NSEvent) {

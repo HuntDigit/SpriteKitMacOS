@@ -14,6 +14,8 @@ final class SKonsole: SKNode {
     let colCount: Int
     
     private var fgNodes = [SKSpriteNode]()
+    private var bgNodes = [SKSpriteNode]()
+
     private var textureCache: [String: SKTexture] = [:]
 
     init(rowCount: Int, colCount: Int) {
@@ -33,32 +35,78 @@ final class SKonsole: SKNode {
                 fgNode.color = SKColor(calibratedHue: CGFloat.random(in: 0 ... 1.0),
                                        saturation: 1.0,
                                        brightness: 1.0, alpha: 1.0)
+                fgNode.zPosition = 0
                 fgNodes.append(fgNode)
                 addChild(fgNode)
+                
+                let bgNode = SKSpriteNode(texture: texture)
+                bgNode.position = CGPoint(x: 16 + 32 * x , y: 16 + 32 * y)
+                bgNode.scale(to: CGSize(width: 32, height: 32))
+                bgNode.colorBlendFactor = 1.0
+                bgNode.color = SKColor(calibratedHue: CGFloat.random(in: 0 ... 1.0),
+                                       saturation: 1.0,
+                                       brightness: 1.0, alpha: 1.0)
+                bgNode.zPosition = -1
+                bgNodes.append(bgNode)
+                addChild(bgNode)
             }
         }
         
     }
     
-    func setCharacter(_ char: Character, at point: Vector) {
+    func putForeground(_ textureName: String, at point: Vector, fgColor: SKColor = .white) {
         let node = self.fgNodes[self.colCount * point.y + point.x]
-        node.color = SKColor.white
-        if let texture = textureCache[String(char)] {
-            node.texture = texture
-        } else {
-            let key = ConverterTable.exchangeCharacter(char)
-            let texture = SKTexture(imageNamed: key)
-            texture.filteringMode = .nearest
-            textureCache[String(char)] = texture
-            node.texture = texture
+        node.texture = getTextureFromCache(textureName)
+        
+        node.isHidden = false
+        node.color = fgColor
+    }
+    
+    func putBackground(_ textureName: String, at point: Vector, bgColor: SKColor = .white) {
+        let node = self.bgNodes[self.colCount * point.y + point.x]
+        node.texture = getTextureFromCache(textureName)
+        
+        node.isHidden = false
+        node.color = bgColor
+    }
+    
+    func putCharacter(_ char: Character, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
+        let textureName = ConverterTable.exchangeCharacter(char)
+        putForeground(textureName, at: point, fgColor: fgColor)
+        
+        if let bgColor = bgColor {
+            putBackground("square_16x16", at: point, bgColor: bgColor)
+        }
+     }
+    
+    func putString(_ string: String, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
+        var cursor = point
+        for ch in string {
+            putCharacter(ch, at: cursor, fgColor: fgColor, bgColor: bgColor)
+            cursor.x += 1
         }
     }
     
-    func setString(_ string: String, at point: Vector) {
-        var dynamicPoint = point
-        for ch in string {
-            setCharacter(ch, at: dynamicPoint)
-            dynamicPoint.x += 1
+    func clear() {
+        for node in fgNodes {
+            node.texture = nil
+            node.isHidden = true
+        }
+        
+        for node in bgNodes {
+            node.texture = nil
+            node.isHidden = true
+        }
+    }
+    
+    func getTextureFromCache(_ textureName: String) -> SKTexture {
+        if let texture = textureCache[textureName] {
+            return texture
+        } else {
+            let texture = SKTexture(imageNamed: textureName)
+            texture.filteringMode = .nearest
+            textureCache[textureName] = texture
+            return texture
         }
     }
     

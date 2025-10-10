@@ -44,21 +44,26 @@ class GameScene: SKScene {
     }
     
     override func keyDown(with event: NSEvent) {
+        var direction: Vector = .zero
         switch event.keyCode {
-        case 0x31: // ?
-            break
-        case 0x13: // W
-            vector.y += 1
-            break
-        case 0x00: // A
-            vector.x -= 1
-            break
-        case 0x20: // D
-            vector.x += 1
-            break
+        case 0, 123: // A - left
+            direction = .left
+        case 2, 124: // D - right
+            direction = .right
+        case 13, 126: // W - up
+            direction = .up
+        case 1, 125: // S - down
+            direction = .down
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
+        
+        if world.player.tryMove(to: direction, in: world.map) {
+            showWorld()
+        } else {
+            console.putString("!BOINK!", at: .zero)
+        }
+        
     }
     
     override func update(_ currentTime: TimeInterval) {

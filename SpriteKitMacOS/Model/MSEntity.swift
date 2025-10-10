@@ -22,4 +22,15 @@ class MSEntity: GKEntity {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func tryMove(to: Vector, in map: Map) -> Bool {
+        let newPosition = position + to
+        
+        if map.getCell(newPosition).enterable {
+            position = newPosition
+            return true
+        }
+        
+        return false
+    }
 }

@@ -93,4 +93,13 @@ enum Cell: Character {
             case .void:  return "Void"
         }
     }
+    
+    var enterable: Bool {
+        switch self {
+        case .floor:
+            return true
+        default:
+            return false
+        }
+    }
 }

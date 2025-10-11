@@ -32,14 +32,35 @@ class GameScene: SKScene {
  
     func showWorld() {
         console.clear()
-        for cell in world.map.cells {
-            if cell.value != .void {
-                console.putBackground(cell.value.name, at: cell.key, bgColor: .lightGray)
+        world.update()
+  
+        if let vc = world.player.component(ofType: VisibilityComponent.self) {
+            for tile in vc.tileVisibility {
+                let mapCell = world.map.getCell(tile.key)
+                
+                switch tile.value {
+                case .notVisited:
+                    break
+                case .visited:
+                    console.putBackground(mapCell.name, at: tile.key, bgColor: .darkGray)
+                case .visible(let lit):
+                    let color = SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1)
+                    console.putBackground(mapCell.name, at: tile.key, bgColor: color)
+                }
             }
-        }
-        
-        for entity in world.entities {
-            console.putForeground(entity.name, at: entity.position, fgColor: .white)
+            
+            for entity in world.entities {
+                let visibility = vc.tileVisibility[entity.position, default: .notVisited]
+                switch visibility {
+                case .notVisited:
+                    break
+                case .visited:
+                    break
+                case .visible(let lit):
+                    let color = SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1)
+                    console.putForeground(entity.name, at: entity.position, fgColor: color)
+                }
+            }
         }
     }
     
@@ -63,7 +84,6 @@ class GameScene: SKScene {
         } else {
             console.putString("!BOINK!", at: .zero)
         }
-        
     }
     
     override func update(_ currentTime: TimeInterval) {

@@ -33,6 +33,15 @@ struct Vector {
     static func + (lhs: Vector, rhs: Vector) -> Vector {
         Vector(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
+    
+    static func - (lhs: Vector, rhs: Vector) -> Vector {
+        Vector(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+    }
+    
+    static func distance(_ v1: Vector, _ v2: Vector) -> Double {
+        let dist = v1 - v2
+        return sqrt(Double(dist.x * dist.x + dist.y * dist.y))
+    }
 }
 
 extension Vector: Hashable { }

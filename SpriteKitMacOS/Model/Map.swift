@@ -102,4 +102,14 @@ enum Cell: Character {
             return false
         }
     }
+    
+    var blocksLight: Bool {
+        switch self {
+        case .floor:
+            return false
+        default:
+            return true
+        }
+    }
+    
 }

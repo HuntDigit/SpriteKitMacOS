@@ -10,6 +10,8 @@
 		CA673C1E2E9983F200605260 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C1D2E9983F200605260 /* Map.swift */; };
 		CA673C202E998AF800605260 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C1F2E998AF400605260 /* World.swift */; };
 		CA673C222E998DC000605260 /* MSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C212E998DBD00605260 /* MSEntity.swift */; };
+		CA673C252E99AC3100605260 /* WorldUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C242E99AC2900605260 /* WorldUpdatable.swift */; };
+		CA673C282E99AD1A00605260 /* VisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C272E99AD1A00605260 /* VisibilityComponent.swift */; };
 		CA82FA572E8B221D00BF36CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA502E8B221D00BF36CB /* AppDelegate.swift */; };
 		CA82FA582E8B221D00BF36CB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA522E8B221D00BF36CB /* GameScene.swift */; };
 		CA82FA592E8B221D00BF36CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA552E8B221D00BF36CB /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 		CA673C1D2E9983F200605260 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		CA673C1F2E998AF400605260 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		CA673C212E998DBD00605260 /* MSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSEntity.swift; sourceTree = "<group>"; };
+		CA673C242E99AC2900605260 /* WorldUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldUpdatable.swift; sourceTree = "<group>"; };
+		CA673C272E99AD1A00605260 /* VisibilityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityComponent.swift; sourceTree = "<group>"; };
 		CA82FA502E8B221D00BF36CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA82FA512E8B221D00BF36CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA82FA522E8B221D00BF36CB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		CA673C1C2E9983E500605260 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA673C262E99ACFA00605260 /* Components */,
 				CA673C1D2E9983F200605260 /* Map.swift */,
 				CA673C1F2E998AF400605260 /* World.swift */,
 				CA673C212E998DBD00605260 /* MSEntity.swift */,
@@ -72,9 +77,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CA673C232E99AC1F00605260 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CA673C242E99AC2900605260 /* WorldUpdatable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CA673C262E99ACFA00605260 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CA673C272E99AD1A00605260 /* VisibilityComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		CA82FA562E8B221D00BF36CB /* SpriteKitMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				CA673C232E99AC1F00605260 /* Protocol */,
 				CA673C1C2E9983E500605260 /* Model */,
 				CA82FA5C2E8B288600BF36CB /* MainContent */,
 				CA82FA502E8B221D00BF36CB /* AppDelegate.swift */,
@@ -173,7 +195,9 @@
 				CA82FA572E8B221D00BF36CB /* AppDelegate.swift in Sources */,
 				CA82FA582E8B221D00BF36CB /* GameScene.swift in Sources */,
 				CA673C1E2E9983F200605260 /* Map.swift in Sources */,
+				CA673C282E99AD1A00605260 /* VisibilityComponent.swift in Sources */,
 				CA82FA602E8B28E500BF36CB /* SKonsole.swift in Sources */,
+				CA673C252E99AC3100605260 /* WorldUpdatable.swift in Sources */,
 				CA82FA622E8B3F4C00BF36CB /* ConverterTable.swift in Sources */,
 				CA82FA5E2E8B28B200BF36CB /* Vector.swift in Sources */,
 				CA673C202E998AF800605260 /* World.swift in Sources */,

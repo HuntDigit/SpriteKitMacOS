@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-final class VisibilityComponent: GKComponent, WorldUpdatable {
+final class VisibilityComponent: GKComponent, WorldUpdateable {
     
     let visionRange: Int
     var tileVisibility: [Vector : Visibility] = [:]

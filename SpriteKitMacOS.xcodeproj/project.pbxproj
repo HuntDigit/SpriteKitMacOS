@@ -10,7 +10,7 @@
 		CA673C1E2E9983F200605260 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C1D2E9983F200605260 /* Map.swift */; };
 		CA673C202E998AF800605260 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C1F2E998AF400605260 /* World.swift */; };
 		CA673C222E998DC000605260 /* MSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C212E998DBD00605260 /* MSEntity.swift */; };
-		CA673C252E99AC3100605260 /* WorldUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C242E99AC2900605260 /* WorldUpdatable.swift */; };
+		CA673C252E99AC3100605260 /* WorldUpdateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C242E99AC2900605260 /* WorldUpdateable.swift */; };
 		CA673C282E99AD1A00605260 /* VisibilityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA673C272E99AD1A00605260 /* VisibilityComponent.swift */; };
 		CA82FA572E8B221D00BF36CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA502E8B221D00BF36CB /* AppDelegate.swift */; };
 		CA82FA582E8B221D00BF36CB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA522E8B221D00BF36CB /* GameScene.swift */; };
@@ -20,6 +20,11 @@
 		CA82FA5E2E8B28B200BF36CB /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA5D2E8B28AE00BF36CB /* Vector.swift */; };
 		CA82FA602E8B28E500BF36CB /* SKonsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA5F2E8B28D600BF36CB /* SKonsole.swift */; };
 		CA82FA622E8B3F4C00BF36CB /* ConverterTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82FA612E8B3F3C00BF36CB /* ConverterTable.swift */; };
+		CAB5BD602E9C556300CB7A89 /* OwnedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD5F2E9C555F00CB7A89 /* OwnedState.swift */; };
+		CAB5BD622E9C55CC00CB7A89 /* GKStateMachine+WorldUpdateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD612E9C55B200CB7A89 /* GKStateMachine+WorldUpdateable.swift */; };
+		CAB5BD642E9C56EE00CB7A89 /* PatrollingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD632E9C56E200CB7A89 /* PatrollingState.swift */; };
+		CAB5BD662E9C579F00CB7A89 /* PursuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */; };
+		CAB5BD682E9C57E300CB7A89 /* AISimplePatrollComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +32,7 @@
 		CA673C1D2E9983F200605260 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		CA673C1F2E998AF400605260 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		CA673C212E998DBD00605260 /* MSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSEntity.swift; sourceTree = "<group>"; };
-		CA673C242E99AC2900605260 /* WorldUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldUpdatable.swift; sourceTree = "<group>"; };
+		CA673C242E99AC2900605260 /* WorldUpdateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldUpdateable.swift; sourceTree = "<group>"; };
 		CA673C272E99AD1A00605260 /* VisibilityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityComponent.swift; sourceTree = "<group>"; };
 		CA82FA502E8B221D00BF36CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA82FA512E8B221D00BF36CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +42,11 @@
 		CA82FA5D2E8B28AE00BF36CB /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		CA82FA5F2E8B28D600BF36CB /* SKonsole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKonsole.swift; sourceTree = "<group>"; };
 		CA82FA612E8B3F3C00BF36CB /* ConverterTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterTable.swift; sourceTree = "<group>"; };
+		CAB5BD5F2E9C555F00CB7A89 /* OwnedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedState.swift; sourceTree = "<group>"; };
+		CAB5BD612E9C55B200CB7A89 /* GKStateMachine+WorldUpdateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKStateMachine+WorldUpdateable.swift"; sourceTree = "<group>"; };
+		CAB5BD632E9C56E200CB7A89 /* PatrollingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrollingState.swift; sourceTree = "<group>"; };
+		CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuingState.swift; sourceTree = "<group>"; };
+		CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISimplePatrollComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,7 @@
 		CA673C1C2E9983E500605260 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CAB5BD5E2E9C550C00CB7A89 /* StateMachines */,
 				CA673C262E99ACFA00605260 /* Components */,
 				CA673C1D2E9983F200605260 /* Map.swift */,
 				CA673C1F2E998AF400605260 /* World.swift */,
@@ -80,7 +91,7 @@
 		CA673C232E99AC1F00605260 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				CA673C242E99AC2900605260 /* WorldUpdatable.swift */,
+				CA673C242E99AC2900605260 /* WorldUpdateable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -88,6 +99,7 @@
 		CA673C262E99ACFA00605260 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */,
 				CA673C272E99AD1A00605260 /* VisibilityComponent.swift */,
 			);
 			path = Components;
@@ -116,6 +128,17 @@
 				CA82FA5D2E8B28AE00BF36CB /* Vector.swift */,
 			);
 			path = MainContent;
+			sourceTree = "<group>";
+		};
+		CAB5BD5E2E9C550C00CB7A89 /* StateMachines */ = {
+			isa = PBXGroup;
+			children = (
+				CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */,
+				CAB5BD632E9C56E200CB7A89 /* PatrollingState.swift */,
+				CAB5BD612E9C55B200CB7A89 /* GKStateMachine+WorldUpdateable.swift */,
+				CAB5BD5F2E9C555F00CB7A89 /* OwnedState.swift */,
+			);
+			path = StateMachines;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,12 +218,17 @@
 				CA82FA572E8B221D00BF36CB /* AppDelegate.swift in Sources */,
 				CA82FA582E8B221D00BF36CB /* GameScene.swift in Sources */,
 				CA673C1E2E9983F200605260 /* Map.swift in Sources */,
+				CAB5BD622E9C55CC00CB7A89 /* GKStateMachine+WorldUpdateable.swift in Sources */,
+				CAB5BD642E9C56EE00CB7A89 /* PatrollingState.swift in Sources */,
 				CA673C282E99AD1A00605260 /* VisibilityComponent.swift in Sources */,
 				CA82FA602E8B28E500BF36CB /* SKonsole.swift in Sources */,
-				CA673C252E99AC3100605260 /* WorldUpdatable.swift in Sources */,
+				CA673C252E99AC3100605260 /* WorldUpdateable.swift in Sources */,
+				CAB5BD602E9C556300CB7A89 /* OwnedState.swift in Sources */,
 				CA82FA622E8B3F4C00BF36CB /* ConverterTable.swift in Sources */,
 				CA82FA5E2E8B28B200BF36CB /* Vector.swift in Sources */,
 				CA673C202E998AF800605260 /* World.swift in Sources */,
+				CAB5BD662E9C579F00CB7A89 /* PursuingState.swift in Sources */,
+				CAB5BD682E9C57E300CB7A89 /* AISimplePatrollComponent.swift in Sources */,
 				CA82FA592E8B221D00BF36CB /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

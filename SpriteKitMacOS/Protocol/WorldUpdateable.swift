@@ -1,5 +1,5 @@
 //
-//  WorldUpdatable.swift
+//  WorldUpdateable.swift
 //  SpriteKitMacOS
 //
 //  Created by Andrii Sabinin on 10.10.2025.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol WorldUpdatable {
+protocol WorldUpdateable {
     func update(in world: World)
 }

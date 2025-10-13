@@ -74,7 +74,7 @@ struct Map {
             y += 1
         }
     }
-    
+
     @inlinable
     func getCell(_ coordinate: Vector) -> Cell {
         cells[coordinate, default: .void]

@@ -192,4 +192,13 @@ enum Visibility {
     case notVisited
     case visited
     case visible(lit: Double)
+    
+    var isVisible: Bool {
+        switch self {
+        case .notVisited, .visited:
+            return false
+        case .visible:
+            return true
+        }
+    }
 }

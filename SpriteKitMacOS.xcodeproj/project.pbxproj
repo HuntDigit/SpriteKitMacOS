@@ -25,6 +25,7 @@
 		CAB5BD642E9C56EE00CB7A89 /* PatrollingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD632E9C56E200CB7A89 /* PatrollingState.swift */; };
 		CAB5BD662E9C579F00CB7A89 /* PursuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */; };
 		CAB5BD682E9C57E300CB7A89 /* AISimplePatrollComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */; };
+		CAB5BD6A2E9C66D800CB7A89 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD692E9C66D200CB7A89 /* Heading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		CAB5BD632E9C56E200CB7A89 /* PatrollingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrollingState.swift; sourceTree = "<group>"; };
 		CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuingState.swift; sourceTree = "<group>"; };
 		CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISimplePatrollComponent.swift; sourceTree = "<group>"; };
+		CAB5BD692E9C66D200CB7A89 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		CA673C1C2E9983E500605260 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CAB5BD692E9C66D200CB7A89 /* Heading.swift */,
 				CAB5BD5E2E9C550C00CB7A89 /* StateMachines */,
 				CA673C262E99ACFA00605260 /* Components */,
 				CA673C1D2E9983F200605260 /* Map.swift */,
@@ -217,6 +220,7 @@
 				CA673C222E998DC000605260 /* MSEntity.swift in Sources */,
 				CA82FA572E8B221D00BF36CB /* AppDelegate.swift in Sources */,
 				CA82FA582E8B221D00BF36CB /* GameScene.swift in Sources */,
+				CAB5BD6A2E9C66D800CB7A89 /* Heading.swift in Sources */,
 				CA673C1E2E9983F200605260 /* Map.swift in Sources */,
 				CAB5BD622E9C55CC00CB7A89 /* GKStateMachine+WorldUpdateable.swift in Sources */,
 				CAB5BD642E9C56EE00CB7A89 /* PatrollingState.swift in Sources */,

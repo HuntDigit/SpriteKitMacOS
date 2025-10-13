@@ -25,10 +25,10 @@ class World {
         
         for esp in map.enemySpawnPositions {
             let enemy = MSEntity(name: "Enemy", startPosition: esp)
-            enemy.addComponent(VisibilityComponent(visionRange: 7))
+            enemy.addComponent(VisibilityComponent(visionRange: 4))
             enemy.addComponent(AISimplePatrollComponent(owner: enemy, target: player))
             entities.append(enemy)
-        }
+        } 
     }
     
     func update() {

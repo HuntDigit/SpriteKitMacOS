@@ -10,19 +10,11 @@ import SpriteKit
 
 struct MainView: View {
     let size: CGSize
-    
-    private let preferredFramesPerSecond: Int = 30
-    private let options: SpriteView.Options = [
-        .ignoresSiblingOrder,
-        .shouldCullNonVisibleNodes
-    ]
-    private let debugOptions: SpriteView.DebugOptions = [
-        .showsFPS,
-        .showsNodeCount
-    ]
+    private let config:SpriteOptions
     
     init(size: CGSize) {
         self.size = size
+        self.config = SpriteOptions()
     }
     
     var scene: SKScene {
@@ -34,10 +26,28 @@ struct MainView: View {
 
     var body: some View {
         SpriteView(scene: scene,
-                   preferredFramesPerSecond: preferredFramesPerSecond,
-                   options: options,
-                   debugOptions: debugOptions)
+                   preferredFramesPerSecond: config.prefFPS,
+                   options: config.options,
+                   debugOptions: config.debugOptions)
             .frame(width: size.width, height: size.height)
             .ignoresSafeArea()
     }
+}
+
+// MARK: - Configuration struct for SpriteView -
+
+struct SpriteOptions {
+    typealias Options = SpriteView.Options
+    typealias DebugOptions = SpriteView.DebugOptions
+    
+    let prefFPS: Int = 30
+    
+    let options: Options = [
+        .ignoresSiblingOrder,
+        .shouldCullNonVisibleNodes
+    ]
+    let debugOptions: DebugOptions = [
+        .showsFPS,
+        .showsNodeCount
+    ]
 }

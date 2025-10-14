@@ -10,8 +10,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let COL_COUNT: Int = 80
-    let ROW_COUNT: Int = 44
+    let COL_COUNT: Int = 40
+    let ROW_COUNT: Int = 22
     
     var console: SKonsole!
     var world: World!
@@ -37,6 +37,9 @@ class GameScene: SKScene {
     }
     
     func showWorld() {
+        let offset = Vector(x: COL_COUNT / 2 - world.map.size.x / 2,
+                            y: ROW_COUNT / 2 - world.map.size.y / 2)
+        
         console.clear()
         world.update()
   
@@ -48,10 +51,10 @@ class GameScene: SKScene {
                 case .notVisited:
                     break
                 case .visited:
-                    console.putBackground(mapCell.name, at: tile.key, bgColor: .darkGray)
+                    console.putBackground(mapCell.name, at: tile.key, offset: offset, bgColor: .darkGray)
                 case .visible(let lit):
                     let color = SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1)
-                    console.putBackground(mapCell.name, at: tile.key, bgColor: color)
+                    console.putBackground(mapCell.name, at: tile.key, offset: offset,  bgColor: color)
                 }
             }
             
@@ -72,7 +75,7 @@ class GameScene: SKScene {
                         break
                     case .visible(let lit):
                         let color = SKColor(calibratedHue: 0.0, saturation: 1, brightness: lit, alpha: 1)
-                        console.putBackground(mapCell.name, at: tile.key, bgColor: color)
+                        console.putBackground(mapCell.name, at: tile.key, offset: offset,  bgColor: color)
                     }
                 }
             }
@@ -86,7 +89,7 @@ class GameScene: SKScene {
                     break
                 case .visible(let lit):
                     let color = SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1)
-                    console.putForeground(entity.name, at: entity.position, fgColor: color)
+                    console.putForeground(entity.name, at: entity.position, offset: offset,  fgColor: color)
                 }
             }
         }

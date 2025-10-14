@@ -25,6 +25,7 @@ final class SKonsole: SKNode {
         super.init()
         
         let texture = SKTexture(imageNamed: "square_16x16")
+        texture.filteringMode = .nearest
         
         for y in 0..<rowCount{
             for x in 0..<colCount {
@@ -54,16 +55,18 @@ final class SKonsole: SKNode {
         
     }
     
-    func putForeground(_ textureName: String, at point: Vector, fgColor: SKColor = .white) {
-        let node = self.fgNodes[self.colCount * point.y + point.x]
+    func putForeground(_ textureName: String, at point: Vector, offset: Vector,  fgColor: SKColor = .white) {
+        let calibratedPoint = point + offset
+        let node = self.fgNodes[self.colCount * calibratedPoint.y + calibratedPoint.x]
         node.texture = getTextureFromCache(textureName)
         
         node.isHidden = false
         node.color = fgColor
     }
     
-    func putBackground(_ textureName: String, at point: Vector, bgColor: SKColor = .white) {
-        let node = self.bgNodes[self.colCount * point.y + point.x]
+    func putBackground(_ textureName: String, at point: Vector, offset: Vector, bgColor: SKColor = .white) {
+        let calibratedPoint = point + offset
+        let node = self.bgNodes[self.colCount * calibratedPoint.y + calibratedPoint.x]
         node.texture = getTextureFromCache(textureName)
         
         node.isHidden = false
@@ -72,10 +75,10 @@ final class SKonsole: SKNode {
     
     func putCharacter(_ char: Character, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
         let textureName = ConverterTable.exchangeCharacter(char)
-        putForeground(textureName, at: point, fgColor: fgColor)
+        putForeground(textureName, at: point, offset: .zero, fgColor: fgColor)
         
         if let bgColor = bgColor {
-            putBackground("square_16x16", at: point, bgColor: bgColor)
+            putBackground("square_16x16", at: point, offset: .zero, bgColor: bgColor)
         }
      }
     

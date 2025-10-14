@@ -26,8 +26,7 @@ class GameScene: SKScene {
         console.clear()
         showWorld()
         
-//        console.putString("Hello, world!", at: .init(x: 1, y: 1), bgColor: .black)
-//        console.putForeground("Player", at: .init(x: 3, y: 8), fgColor: .green)
+        console.putString("Level 1 - Entrance", at: .init(x: 0, y: ROW_COUNT - 1), bgColor: .black, alignment: .center)
     }
     
     func resetGame() {

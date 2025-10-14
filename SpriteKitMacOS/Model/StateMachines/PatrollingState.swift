@@ -27,6 +27,7 @@ final class PatrollingState: GKState, WorldUpdateable, OwnedState {
         if let vc = owner.component(ofType: VisibilityComponent.self) {
             if vc.tileVisibility[target.position]?.isVisible ?? false {
                 _ = stateMachine?.enter(PursuingState.self)
+                Event.eventList.append(.alert(coord: owner.position))
                 return
             }
         }

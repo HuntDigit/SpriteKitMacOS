@@ -82,8 +82,12 @@ final class SKonsole: SKNode {
         }
      }
     
-    func putString(_ string: String, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
+    func putString(_ string: String, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
         var cursor = point
+        if alignment == .center {
+            cursor.x = colCount/2 - string.count/2
+        }
+        
         for ch in string {
             putCharacter(ch, at: cursor, fgColor: fgColor, bgColor: bgColor)
             cursor.x += 1
@@ -115,5 +119,10 @@ final class SKonsole: SKNode {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    enum Alignment {
+        case center
+        case left
     }
 }

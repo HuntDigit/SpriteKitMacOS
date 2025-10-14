@@ -29,8 +29,8 @@ struct MainView: View {
                    preferredFramesPerSecond: config.prefFPS,
                    options: config.options,
                    debugOptions: config.debugOptions)
-            .frame(width: size.width, height: size.height)
-            .ignoresSafeArea()
+// set frame if you want to provide static size 
+//            .frame(width: size.width, height: size.height)
     }
 }
 

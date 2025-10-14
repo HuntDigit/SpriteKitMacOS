@@ -10,6 +10,16 @@ struct Vector {
     var x: Int
     var y: Int
     
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
+    init(x: Int32, y: Int32) {
+        self.x = Int(x)
+        self.y = Int(y)
+    }
+    
     static var zero: Vector {
         Vector(x: 0, y: 0)
     }

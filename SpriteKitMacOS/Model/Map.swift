@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 struct Map {
     
@@ -40,6 +41,10 @@ struct Map {
     var targetPosition: Vector = .zero
     var cameraPosition: Vector = .zero
     var enemySpawnPositions: [Vector] = []
+    let size: Vector
+    
+    private var vectorNodeMap: [Vector: GKGridGraphNode] = [:]
+    private var graph = GKGridGraph<GKGridGraphNode>()
     
     init(mapString: String) {
         let lines = mapString
@@ -73,11 +78,56 @@ struct Map {
             x = 0
             y += 1
         }
+        
+        var longestLine = 0
+        for line in lines {
+            longestLine = max(longestLine, line.count)
+        }
+        size = Vector(x: longestLine, y: lines.count)
+        
+        let result = createPathfindingGraph()
+        graph = result.graph
+        vectorNodeMap = result.map
     }
 
     @inlinable
     func getCell(_ coordinate: Vector) -> Cell {
         cells[coordinate, default: .void]
+    }
+    
+    // MARK: Pathfinding
+    
+    private func createPathfindingGraph() -> (map: [Vector: GKGridGraphNode], graph: GKGridGraph<GKGridGraphNode>) {
+        var nodeMap = [Vector: GKGridGraphNode]()
+        let graph = GKGridGraph(fromGridStartingAt: vector_int2(0, 0), width: Int32(size.x), height: Int32(size.y), diagonalsAllowed: false, nodeClass: GKGridGraphNode.self)
+        
+        for node in graph.nodes! {
+            let gridNode = node as! GKGridGraphNode
+            let position = Vector(x: gridNode.gridPosition.x, y:gridNode.gridPosition.y)
+            nodeMap[position] = gridNode
+        }
+        
+        let nodesToRemove = cells
+            .filter { $0.value.enterable == false }
+            .compactMap { nodeMap[$0.key] }
+        
+        graph.remove(nodesToRemove)
+        
+        return (map: nodeMap, graph: graph)
+    }
+    
+    func path(from coord1: Vector, to coord2: Vector) -> [Vector] {
+        guard let fromNode = vectorNodeMap[coord1], let toNode = vectorNodeMap[coord2] else {
+            print("Cant find vector from nodes dictionary")
+            return []
+        }
+        
+        let path = graph.findPath(from: fromNode, to: toNode)
+        
+        return path.map { node in
+            let pos = (node as! GKGridGraphNode).gridPosition
+            return Vector(x: pos.x, y: pos.y)
+        }
     }
 }
 

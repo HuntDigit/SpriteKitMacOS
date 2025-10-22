@@ -82,8 +82,8 @@ final class SKonsole: SKNode {
         }
      }
     
-    func putString(_ string: String, at point: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
-        var cursor = point
+    func putString(_ string: String, at point: Vector, offset: Vector = .zero, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
+        var cursor = point + offset
         if alignment == .center {
             cursor.x = colCount/2 - string.count/2
         }

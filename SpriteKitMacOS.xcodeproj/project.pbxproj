@@ -26,6 +26,7 @@
 		CAB5BD662E9C579F00CB7A89 /* PursuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */; };
 		CAB5BD682E9C57E300CB7A89 /* AISimplePatrollComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */; };
 		CAB5BD6A2E9C66D800CB7A89 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB5BD692E9C66D200CB7A89 /* Heading.swift */; };
+		CAD54CD42EA8AACC00140663 /* mgAlert.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CAD54CD32EA8AACC00140663 /* mgAlert.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		CAB5BD652E9C579F00CB7A89 /* PursuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PursuingState.swift; sourceTree = "<group>"; };
 		CAB5BD672E9C57D400CB7A89 /* AISimplePatrollComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISimplePatrollComponent.swift; sourceTree = "<group>"; };
 		CAB5BD692E9C66D200CB7A89 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
+		CAD54CD32EA8AACC00140663 /* mgAlert.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = mgAlert.aiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		CA14D7DB2E9EDC370052BFE6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CAD54CD32EA8AACC00140663 /* mgAlert.aiff */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD54CD42EA8AACC00140663 /* mgAlert.aiff in Resources */,
 				CA82FA5A2E8B221D00BF36CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

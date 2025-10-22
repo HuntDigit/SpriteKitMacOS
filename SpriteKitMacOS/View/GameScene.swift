@@ -92,6 +92,18 @@ class GameScene: SKScene {
                 }
             }
         }
+        
+        for event in Event.eventList {
+            switch event {
+            case .alert(let coord):
+                console.putString("!", at: coord, offset: offset, fgColor: .white, bgColor: .red)
+                playSound(name: "mgAlert")
+//            default:
+//                print("Receive event \(event)")
+            }
+        }
+        
+        Event.eventList.removeAll()
     }
     
     func overlaingTiles(_ tiles1:[Vector: Visibility], _ tiles2: [Vector: Visibility]) -> [Vector: Visibility] {
@@ -126,14 +138,24 @@ class GameScene: SKScene {
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
-        
-        if world.player.tryMove(to: direction, in: world.map) {
-            showWorld()
-        } else {
-            console.putString("!BOINK!", at: .zero)
+        if world.state == .playing {
+            if world.player.tryMove(to: direction, in: world.map) {
+                showWorld()
+                if world.state == .won {
+                    console.putString("You WON", at: .init(x: 1, y: COL_COUNT  / 2), fgColor: .white, bgColor: .green, alignment: .center)
+                }
+                if world.state == .lost {
+                    console.putString("LOST", at: .init(x: 1, y: COL_COUNT  / 2), fgColor: .white, bgColor: .red, alignment: .center)
+                }
+            } else {
+                console.putString("!BOINK!", at: .zero)
+            }
         }
     }
-    
+    func playSound(name fileName: String) {
+        let action = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
+        run(action )
+    }
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }

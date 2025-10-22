@@ -15,6 +15,7 @@ class GameScene: SKScene {
     
     var console: SKonsole!
     var world: World!
+    var currentLevelIndex = 0
     
     var vector: Vector = .zero
     
@@ -30,7 +31,7 @@ class GameScene: SKScene {
     }
     
     func resetGame() {
-        world = World(mapString: Map.mapString[0])
+        world = World(mapString: Map.mapString[currentLevelIndex])
         console.clear()
         showWorld()
     }
@@ -104,6 +105,8 @@ class GameScene: SKScene {
         }
         
         Event.eventList.removeAll()
+        
+        console.putString("Level \(currentLevelIndex + 1)", at: .init(x: 0, y: 0), fgColor: .white, bgColor: .black)
     }
     
     func overlaingTiles(_ tiles1:[Vector: Visibility], _ tiles2: [Vector: Visibility]) -> [Vector: Visibility] {
@@ -143,6 +146,7 @@ class GameScene: SKScene {
                 showWorld()
                 if world.state == .won {
                     console.putString("You WON", at: .init(x: 1, y: COL_COUNT  / 2), fgColor: .white, bgColor: .green, alignment: .center)
+                    currentLevelIndex = (currentLevelIndex + 1) % Map.mapString.count
                 }
                 if world.state == .lost {
                     console.putString("LOST", at: .init(x: 1, y: COL_COUNT  / 2), fgColor: .white, bgColor: .red, alignment: .center)
@@ -152,10 +156,12 @@ class GameScene: SKScene {
             }
         }
     }
+    
     func playSound(name fileName: String) {
         let action = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
         run(action )
     }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
